@@ -4,19 +4,17 @@ import Recipe from "./components/main/Recipe";
 import { BackToTop } from "./components/buttonScroll/backToTop/BackToTop";
 
 function App() {
-  // const APP_ID = "618b2754";
-  // const APP_KEY = "fe545478b74e8e4fcc32a68dd3f5aa80";
   const APP_ID = "705db6fc";
   const APP_KEY = "adf25552569a08da03a991eaa3a287ed";
 
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("Indian Chai");
+  const [query, setQuery] = useState("food");
   const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
     async function getData() {
       let res = await fetch(
-        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`,
+        `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`,
         {
           headers: {
             "Edamam-Account-User": "GauravRecipe",

@@ -3,6 +3,7 @@ import Styles from "./Recipe.module.css";
 const Recipe = (props) => {
   return (
     <>
+    <div className={Styles.main}>
       <div className={Styles.recipe}>
         <h1>Recipe Name : {props.recipeList.recipe.label}</h1>
         <ol>
@@ -30,6 +31,7 @@ const Recipe = (props) => {
         >
           {Math.floor(props.recipeList.recipe.calories)} Calories
         </h3>
+      </div>
       </div>
     </>
   );

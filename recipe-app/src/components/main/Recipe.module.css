@@ -1,3 +1,8 @@
+/* .main{
+    min-width: 40%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+} */
 .recipe{
     margin:20px;
     min-width: 40%;

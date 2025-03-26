@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Recipe from "./components/main/Recipe";
 import { BackToTop } from "./components/buttonScroll/backToTop/BackToTop";
+import { Navbar } from "./components/navbar/Navbar";
 
 function App() {
   const APP_ID = "705db6fc";
   const APP_KEY = "adf25552569a08da03a991eaa3a287ed";
 
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("food");
+  const [query, setQuery] = useState("Indian Tea");
   const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ function App() {
       );
       let response = await res.json();
       setDishes(response.hits);
-      // console.log(response)
+      console.log(response)
     }
     getData();
   }, [query]);
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+      <Navbar/>
       <form className="d-flex" onSubmit={submitHandler}>
         <input
           className="form-control me-2"
@@ -44,7 +46,7 @@ function App() {
           aria-label="Search"
           onChange={(e) => setSearch(e.target.value)}
           value={search}
-          style={{background:"#F1D3B2"}}
+          style={{background:"#F1D3B2", height:"50px"}}
         />
         <button className="btn btn-primary" type="submit">
           Search

@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
 } */
-.recipe{
+#recipe{
     margin:20px;
     min-width: 40%;
     border-radius: 10px;

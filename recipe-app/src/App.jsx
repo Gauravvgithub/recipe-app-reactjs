@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Recipe from "./components/Recipe";
+import Recipe from "./components/main/Recipe";
+import { BackToTop } from "./components/buttonScroll/backToTop/BackToTop";
 
 function App() {
   // const APP_ID = "618b2754";
@@ -24,6 +25,7 @@ function App() {
       );
       let response = await res.json();
       setDishes(response.hits);
+      // console.log(response)
     }
     getData();
   }, [query]);
@@ -44,14 +46,16 @@ function App() {
           aria-label="Search"
           onChange={(e) => setSearch(e.target.value)}
           value={search}
+          style={{background:"#F1D3B2"}}
         />
-        <button className="btn btn-dark" type="submit">
+        <button className="btn btn-primary" type="submit">
           Search
         </button>
       </form>
       {dishes.map((item, idx) => (
         <Recipe recipeList={item} key={idx} />
       ))}
+      <BackToTop/>
     </>
   );
 }

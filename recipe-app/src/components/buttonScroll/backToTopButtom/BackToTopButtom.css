@@ -1,0 +1,6 @@
+.arrow-button{
+    background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+    outline: none;
+    border: none;
+    font-weight: 700;
+}

@@ -5,8 +5,10 @@ import { BackToTop } from "./components/buttonScroll/backToTop/BackToTop";
 import { Navbar } from "./components/navbar/Navbar";
 
 function App() {
-  const APP_ID = "705db6fc";
-  const APP_KEY = "adf25552569a08da03a991eaa3a287ed";
+
+  const APP_ID = import.meta.env.VITE_APP_ID;
+  const APP_KEY = import.meta.env.VITE_APP_KEY;
+  const USER = import.meta.env.VITE_USER;
 
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("Indian Tea");
@@ -18,16 +20,16 @@ function App() {
         `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`,
         {
           headers: {
-            "Edamam-Account-User": "GauravRecipe",
+            "Edamam-Account-User": USER,
           },
         }
       );
       let response = await res.json();
       setDishes(response.hits);
-      console.log(response)
+      // console.log(response)
     }
     getData();
-  }, [query]);
+  }, [query, APP_ID, APP_KEY, USER]);
 
   const submitHandler = (e) => {
     e.preventDefault();
